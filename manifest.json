@@ -1,0 +1,36 @@
+{
+  "name":"YouTube Repeater",
+  "version":"1.0.1",
+  "manifest_version":2,
+  "description":"Youtubeをリピート再生する。",
+  "background":{
+    "scripts":[
+      "background.js"
+    ]
+  },
+  "page_action":
+  {
+    "default_icon":"icon.png"
+  },
+  "content_scripts":[
+    {
+      "matches":[
+        "http://www.youtube.com/*",
+        "https://www.youtube.com/*"
+      ],
+      "js":["contentscript.js"],
+      "run_at":"document_end"
+    }
+  ],
+  "icons":{
+    "48":"icon.png",
+    "128":"icon.png"
+  },
+  "permissions":[
+    "tabs",
+    "http://www.youtube.com/*",
+    "https://www.youtube.com/*"
+  ]
+}
+
+    
