@@ -21,7 +21,7 @@ chrome.extension.onRequest.addListener(
 //グローバルに直接スクリプトを追加する
 
 sc = document.createElement("script");
-sc.innerText = 'var repeat_aFOUEAF = false;function repeater_aFOUEAF(state){if(state == 0 && repeat_aFOUEAF){player_aFOUEAF.playVideo();}}var player_aFOUEAF = document.getElementsByTagName("embed")[0];window.onload = function(){if(player_aFOUEAF){if(player_aFOUEAF.addEventListener){player_aFOUEAF.addEventListener("onStateChange","repeater_aFOUEAF");}}};document.addEventListener("repeatButtonPushed",function(){repeat_aFOUEAF = !repeat_aFOUEAF;});';
+sc.innerText = 'var repeat_aFOUEAF = false;function repeater_aFOUEAF(state){if(state == 0 && repeat_aFOUEAF){player_aFOUEAF.playVideo();}}var player_aFOUEAF = document.getElementsByTagName("embed")[0];window.addEventListener("load",function(){if(player_aFOUEAF){if(player_aFOUEAF.addEventListener){player_aFOUEAF.addEventListener("onStateChange","repeater_aFOUEAF");}}},true);document.addEventListener("repeatButtonPushed",function(){repeat_aFOUEAF = !repeat_aFOUEAF;});';
 
 document.head.appendChild(sc);
 
@@ -34,17 +34,16 @@ function repeater_aFOUEAF(state){
   }
 }
 var player_aFOUEAF = document.getElementsByTagName("embed")[0];
-window.onload = function(){
+window.addEventListener("load",function(){
   if(player_aFOUEAF){
     if(player_aFOUEAF.addEventListener){
       player_aFOUEAF.addEventListener("onStateChange","repeater_aFOUEAF");
     }
   }
-};
+},true);
 document.addEventListener("repeatButtonPushed",function(){
   repeat_aFOUEAF = !repeat_aFOUEAF;
 });
 */
-
 
 
